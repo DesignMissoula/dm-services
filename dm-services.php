@@ -5,7 +5,7 @@ Plugin Name: DM Services
 Plugin URI: http://www.designmissoula.com/
 Description: This is not just a plugin, it makes WordPress better.
 Author: Bradford Knowlton
-Version: 1.0.5
+Version: 1.1.5
 Author URI: http://bradknowlton.com/
 GitHub Plugin URI: https://github.com/DesignMissoula/DM-services
 */
@@ -96,7 +96,7 @@ class dm_service_meta_box {
 		    <td>
 		        <input type="text" name="icon" id="icon" class="regular-text" value="<?php if ( isset ( $icon ) ) echo $icon; ?>" />
 		        <br>
-		        <span class="description">Service Website URL.</span>
+		        <span class="description">Flaticon Name</span>
 		    </td></tr>
 		    </tbody>
 		</table>
