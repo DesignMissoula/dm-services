@@ -5,7 +5,7 @@ Plugin Name: DM Services
 Plugin URI: http://www.designmissoula.com/
 Description: This is not just a plugin, it makes WordPress better.
 Author: Bradford Knowlton
-Version: 1.0.2
+Version: 1.0.3
 Author URI: http://bradknowlton.com/
 GitHub Plugin URI: https://github.com/DesignMissoula/DM-services
 */
@@ -29,7 +29,7 @@ function register_cpt_service() {
 	$args = array(
 		'labels' => $labels,
 		'hierarchical' => true,
-		'supports' => array( 'title', 'thumbnail' ), // 'author', 'editor', 'excerpt', , 'custom-fields'
+		'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail', 'custom-fields' ), // 'author', 'editor', 'excerpt', , 'custom-fields'
 		'taxonomies' => array( 'service_levels' ),
 		'public' => true,
 		'show_ui' => true,
