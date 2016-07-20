@@ -5,7 +5,7 @@ Plugin Name: DM Services
 Plugin URI: http://www.designmissoula.com/
 Description: This is not just a plugin, it makes WordPress better.
 Author: Bradford Knowlton
-Version: 1.0.3
+Version: 1.0.5
 Author URI: http://bradknowlton.com/
 GitHub Plugin URI: https://github.com/DesignMissoula/DM-services
 */
@@ -29,7 +29,7 @@ function register_cpt_service() {
 	$args = array(
 		'labels' => $labels,
 		'hierarchical' => true,
-		'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail', 'custom-fields' ), // 'author', 'editor', 'excerpt', , 'custom-fields'
+		'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail',  ), // 'author', 'editor', 'excerpt', , 'custom-fields' 'custom-fields'
 		'taxonomies' => array( 'service_levels' ),
 		'public' => true,
 		'show_ui' => true,
@@ -86,15 +86,15 @@ class dm_service_meta_box {
 	function content() {
 		global $post;
 		wp_nonce_field( basename( __FILE__ ), 'dm-service_nonce' );
-	    $website_url = get_post_meta( $post->ID, '_website_url', true );
+	    $icon = get_post_meta( $post->ID, '_icon', true );
 	    ?>
 	    <table class="form-table">
 		    <tbody>
 		        <tr><th scope="row">
-		        <label for="website_url" class="prfx-row-title"><?php _e( 'Website URL', 'dm-service' )?></label>    </th>
+		        <label for="icon" class="prfx-row-title"><?php _e( 'Icon', 'dm-service' )?></label>    </th>
 		 
 		    <td>
-		        <input type="text" name="website_url" id="website_url" class="regular-text" value="<?php if ( isset ( $website_url ) ) echo $website_url; ?>" />
+		        <input type="text" name="icon" id="icon" class="regular-text" value="<?php if ( isset ( $icon ) ) echo $icon; ?>" />
 		        <br>
 		        <span class="description">Service Website URL.</span>
 		    </td></tr>
@@ -120,8 +120,8 @@ class dm_service_meta_box {
 	    }
 	 
 	    // Checks for input and sanitizes/saves if needed
-	    if( isset( $_POST[ 'website_url' ] ) ) {
-	        update_post_meta( $post_id, '_website_url', sanitize_text_field( $_POST[ 'website_url' ] ) );
+	    if( isset( $_POST[ 'icon' ] ) ) {
+	        update_post_meta( $post_id, '_icon', sanitize_text_field( $_POST[ 'icon' ] ) );
 	    
 	    }
 	    	    
